@@ -21,16 +21,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IUnitOfWork, UnitOfwork>();
 
 var app = builder.Build();
-app.Environment.IsProduction();
 
 // Configure the HTTP request pipeline.
 
-/*
+
 if (app.Environment.IsDevelopment())
 {
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
-}*/
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+/*
 if (app.Environment.IsProduction())
 {
     app.UseSwagger(c =>
@@ -43,7 +44,7 @@ if (app.Environment.IsProduction())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Marketplace API V1");
         c.RoutePrefix = String.Empty;
     });
-}
+}*/
 
 
 app.UseHttpsRedirection();
