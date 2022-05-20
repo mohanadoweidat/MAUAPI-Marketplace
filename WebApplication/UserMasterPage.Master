@@ -1,0 +1,153 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserMasterPage.master.cs" Inherits="WebApplication.UserMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+     <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+      
+     <!-- CSS Style -->
+    <link href="AdminCss.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="sidebar">
+    <div class="logo-details">
+      
+          <img class="icon" src="https://img.icons8.com/color/48/ffffff/online-store.png"/>
+        <div class="logo_name">Marketplace
+        </div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="index.aspx">
+      <img src="https://img.icons8.com/ios-glyphs/30/26e07f/home.png"/>
+          <span class="links_name">Homepage</span>
+        </a>
+         <span class="tooltip">Homepage</span>
+      </li>
+
+      <li>
+        <a href="Userproduct.aspx">
+     <img src="https://img.icons8.com/office/40/ffffff/used-product.png"/>
+            
+          <span class="links_name">My products</span>
+        </a>
+         <span class="tooltip">My products</span>
+      </li>
+
+      <li>
+       <a href="Sellproduct.aspx">
+       <img src="https://img.icons8.com/doodle/48/ffffff/add.png"/>
+         <span class="links_name">Sell a product</span>
+       </a>
+       <span class="tooltip">Sell a product</span>
+     </li>
+
+        <li>
+       <a href="UserCart.aspx">
+       <img src="https://img.icons8.com/office/40/26e07f/shopping-cart-loaded--v1.png"/>
+         <span class="links_name">My cart</span>
+       </a>
+       <span class="tooltip">My cart</span>
+     </li> 
+
+
+          <li>
+       <a href="UserOrder.aspx">
+      <img src="https://img.icons8.com/external-itim2101-fill-itim2101/64/26e07f/external-order-online-shopping-itim2101-fill-itim2101.png"/>
+         <span class="links_name">My orders</span>
+       </a>
+       <span class="tooltip">My orders</span>
+     </li> 
+
+
+
+     <li>
+       <a href="OrderHistory.aspx">
+     <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/26e07f/external-history-instagram-flatart-icons-outline-flatarticons.png"/>
+         <span class="links_name">History</span>
+       </a>
+       <span class="tooltip">History</span>
+     </li>
+
+
+      <li>
+       <a href="Userprofile.aspx">
+      <img src="https://img.icons8.com/material-rounded/48/26e07f/user-menu-male.png"/>
+         <span class="links_name">My profile</span>
+       </a>
+       <span class="tooltip">My profile</span>
+     </li>
+
+         <li>
+       <a href="UserInterest.aspx">
+     <img src="https://img.icons8.com/external-smashingstocks-glyph-smashing-stocks/100/26e07f/external-favourites-shopping-and-commerce-smashingstocks-glyph-smashing-stocks.png"/>
+         <span class="links_name">My Interest</span>
+       </a>
+       <span class="tooltip">My Interest</span>
+     </li>
+
+
+        
+          
+     <li class="profile">
+         <div class="profile-details">
+          <img src="https://img.icons8.com/doodle/48/ffffff/gender-neutral-user.png"/>
+           <div class="name_job">
+             <div class="name">
+                 <asp:Label ID="inloggedUserName" runat="server"></asp:Label>
+             </div>
+             <div class="job">User</div>
+           </div>
+         </div>
+
+         <button runat="server" id="logOut_btn" >
+          <a>
+         <i class='bx bx-log-out-circle' id="log_out"></i>
+         </a>
+          <span class="tooltip" title="logga ut"></span>
+         </button>
+          
+        <%-- <i class='bx bx-log-out' id="log_out" ></i>--%>
+     </li>
+         <li>
+         </li>
+    </ul>
+  </div>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+        <script type="text/javascript">
+            let sidebar = document.querySelector(".sidebar");
+            let closeBtn = document.querySelector("#btn");
+
+            closeBtn.addEventListener("click", () => {
+                sidebar.classList.toggle("open");
+                menuBtnChange();//calling the function(optional)
+            });
+
+
+            // following are the code to change sidebar button(optional)
+            function menuBtnChange() {
+                if (sidebar.classList.contains("open")) {
+                    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+                }
+                else {
+                    closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+                }
+            }
+        </script>
+    </form>
+</body>
+</html>
